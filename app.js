@@ -15,16 +15,22 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+
+
 app.get("/", function(req, res) {
-
-  res.render("home");
-
+//renders the ejs "home" route for your starting route and defines the constant
+//homeStartingContent so we can use it in ejs scriplet tags, we define it using
+//a key value pair, (key: value)
+  res.render("home", {startingContent: homeStartingContent});
 });
 
+app.get("/contact", function(req, res) {
+  res.render("contact", {contactContent: contactContent});
+});
 
-
-
-
+app.get("/about", function(req, res) {
+  res.render("about", {aboutContent: aboutContent});
+});
 
 
 
