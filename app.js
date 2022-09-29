@@ -62,7 +62,10 @@ app.get("/posts/:postName", function(req, res){ //STEP 5
 	  const storedTitle = _.lowerCase(post.title); //use Lodash to make lowerCase
 //check the requested data against the stored data we have
     if (storedTitle === requestedTitle) {
-      console.log("Match found!")
+      res.render("post", {
+        title: post.title,
+        content: post.content
+      });
     }
   });
 

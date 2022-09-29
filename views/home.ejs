@@ -6,7 +6,10 @@
 
 <% posts.forEach(function(post){ %>
   <h1><%= post.title %></h1> <!-- we use .title and .content to show the object's value -->
-  <p><%= post.content %></p> <!-- we no longer have to say the position of the array in forEach -->
+  <p><%= post.content.substring(0, 100) + "..." %> <!-- we no longer have to say the position of the array in forEach -->
+<!-- we truncated the string above^^^ -->
+<a href="/posts/<%= post.title %>">Read more</a> <!-- dynamic url -->
+</p>
 <% }) %>
 
 <%- include("partials/footer"); -%>
